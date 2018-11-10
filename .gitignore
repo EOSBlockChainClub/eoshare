@@ -66,4 +66,4 @@ typings/
 
 # GatsbyJS
 .cache
-/public
+/frontend/public
