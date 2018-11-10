@@ -1,0 +1,3 @@
+{
+  "plugins": [["babel-plugin-import", { "libraryName": "antd", "style": true }]]
+}
