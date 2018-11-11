@@ -67,3 +67,6 @@ typings/
 # GatsbyJS
 .cache
 /frontend/public
+
+# DS_Store
+.DS_Store
