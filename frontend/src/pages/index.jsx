@@ -1,8 +1,13 @@
 import React, { Component } from "react";
-import { Layout } from "components/layouts";
+import { Layout, Header } from "components/layouts";
 class IndexPage extends Component {
   render() {
-    return <Layout>Hello EOS Hackathon!</Layout>;
+    return (
+      <Layout>
+        <Header />
+        Hello EOS Hackathon!
+      </Layout>
+    );
   }
 }
 

@@ -1,0 +1,16 @@
+@import "~scss/theme/default";
+$header-height: 64px;
+.header-container {
+  height: $header-height;
+  border-bottom: 1px solid #ccc;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  width: 100%;
+  height: inherit;
+}
