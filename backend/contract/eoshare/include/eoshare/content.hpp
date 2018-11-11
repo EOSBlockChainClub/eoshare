@@ -19,7 +19,7 @@ namespace eoshare {
         string artist_name;
         string content_title;
         uint8_t content_type;
-        string storage_url;
+        string storage_uri;
         asset price;
         bool status;
         uint64_t primary_key() const { return content_id; }
@@ -31,7 +31,7 @@ namespace eoshare {
 
     struct [[eosio::table, eosio::contract("eoshare")]] purchase {
         name owner;
-        uint64_t content_id;
+        vector<uint64_t> content_ids;
         uint64_t primary_key() const { return owner.value; }
     };
     typedef eosio::multi_index< "purchases"_n, purchase> purchase_table;
@@ -41,5 +41,5 @@ namespace eoshare {
         vector<name> names;
         uint64_t primary_key() const { return content_id; }
     };
-    typedef eosio::multi_index< "seeds"_n, purchase> seed_table;
+    typedef eosio::multi_index< "seeds"_n, seed> seed_table;
 } /// namespace eoshare

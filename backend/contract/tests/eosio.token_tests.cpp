@@ -1,12 +1,12 @@
 #include <boost/test/unit_test.hpp>
 #include <eosio/testing/tester.hpp>
 #include <eosio/chain/abi_serializer.hpp>
+// #include "eosio.system_tester.hpp"
+#include "contracts.hpp"
 
 #include "Runtime/Runtime.h"
 
 #include <fc/variant_object.hpp>
-
-#include "contracts.hpp"
 
 using namespace eosio::testing;
 using namespace eosio;
