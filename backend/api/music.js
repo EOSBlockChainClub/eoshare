@@ -9,7 +9,7 @@ const photos = [
 {
     id:shortid.generate(),
     thumbnail:"/cover1.jpg",
-    price:getRandomInt(1,10),
+    price:3,
     creatorName:faker.name.findName(),
     creatorAccount:"musician1111",
     downloadLink:"link",
