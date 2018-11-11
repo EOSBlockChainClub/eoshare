@@ -9,7 +9,7 @@ const photos = [
 {
     id:shortid.generate(),
     thumbnail:"/public/imageone.jpg",
-    price:123123,
+    price:getRandomInt(10,1000),
     creatorName:faker.name.findName(),
     creatorAccount:"photographer",
     downloadLink:"link",
@@ -22,7 +22,7 @@ const photos = [
 {
     id:shortid.generate(),
     thumbnail:"/public/imagetwo.jpg",
-    price:123123,
+    price:getRandomInt(10,1000),
     creatorName:faker.name.findName(),
     creatorAccount:"photographer",
     downloadLink:"link",
@@ -35,7 +35,7 @@ const photos = [
 {
     id:shortid.generate(),
     thumbnail:"/public/imagethree.jpg",
-    price:123123,
+    price:getRandomInt(10,1000),
     creatorName:faker.name.findName(),
     creatorAccount:"photographer",
     downloadLink:"link",
@@ -48,7 +48,7 @@ const photos = [
 {
     id:shortid.generate(),
     thumbnail:"/public/imagefour.jpg",
-    price:123123,
+    price:getRandomInt(10,1000),
     creatorName:faker.name.findName(),
     creatorAccount:"photographer",
     downloadLink:"link",
@@ -61,7 +61,7 @@ const photos = [
 {
     id:shortid.generate(),
     thumbnail:"/public/imagefive.jpg",
-    price:123123,
+    price:getRandomInt(10,1000),
     creatorName:faker.name.findName(),
     creatorAccount:"photographer",
     downloadLink:"link",
@@ -74,7 +74,7 @@ const photos = [
 {
     id:shortid.generate(),
     thumbnail:"/public/imagesix.jpg",
-    price:123123,
+    price:getRandomInt(10,1000),
     creatorName:faker.name.findName(),
     creatorAccount:"photographer",
     downloadLink:"link",
@@ -87,7 +87,7 @@ const photos = [
 {
     id:shortid.generate(),
     thumbnail:"/public/imageseven.jpg",
-    price:123123,
+    price:getRandomInt(10,1000),
     creatorName:faker.name.findName(),
     creatorAccount:"photographer",
     downloadLink:"link",
@@ -100,7 +100,7 @@ const photos = [
 {
     id:shortid.generate(),
     thumbnail:"/public/imageeight.jpg",
-    price:123123,
+    price:getRandomInt(10,1000),
     creatorName:faker.name.findName(),
     creatorAccount:"photographer",
     downloadLink:"link",
@@ -113,7 +113,7 @@ const photos = [
 {
     id:shortid.generate(),
     thumbnail:"/public/imagenine.jpg",
-    price:123123,
+    price:getRandomInt(10,1000),
     creatorName:faker.name.findName(),
     creatorAccount:"photographer",
     downloadLink:"link",
@@ -126,7 +126,7 @@ const photos = [
 {
     id:shortid.generate(),
     thumbnail:"/public/imageten.jpg",
-    price:123123,
+    price:getRandomInt(10,1000),
     creatorName:faker.name.findName(),
     creatorAccount:"photographer",
     downloadLink:"link",
