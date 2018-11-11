@@ -1,11 +1,18 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+const cors = require("cors");
 
 const app = express();
 
 const photo = require("./photo");
 const music = require("./music")
+
+app.use(cors())
+
+app.post("/create", (req,res)=>{
+    //TODO create 
+})
 
 app.get("/music", (req,res, next)=>{
     return res.json(music)
