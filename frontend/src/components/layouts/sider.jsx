@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Layout, Menu, Icon, Button, Badge } from "antd";
+import { navigate } from "gatsby";
 import styles from "./sider.module.scss";
 const { Sider } = Layout;
 class SideMenu extends Component {
@@ -28,7 +29,7 @@ class SideMenu extends Component {
           defaultSelectedKeys={[current]}
           style={{ borderRight: 0 }}
         >
-          <Menu.Item key="mycontent">
+          <Menu.Item key="mycontent" onClick={() => navigate("/mycontent")}>
             <span>
               <Badge
                 status="processing"
@@ -37,7 +38,7 @@ class SideMenu extends Component {
               My Content
             </span>
           </Menu.Item>
-          <Menu.Item key="purchased">
+          <Menu.Item key="purchased" onClick={() => navigate("/purchased")}>
             <span>
               <Badge
                 status="processing"

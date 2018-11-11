@@ -89,7 +89,7 @@ class UploadPage extends Component {
                 />
               </div>
               <div className={classNames(styles.thumbnail, "col-xs-6")}>
-                <img src="http://localhost:9001/public/imagesix.jpg" />
+                <img alt="snow white" src="http://localhost:9001/public/imagesix.jpg" />
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Layout, Header, Sider } from "components/layouts";
-import { Table, Button, Progress, Tag } from "antd";
+import { Tag, Table, Button } from "antd";
 import classNames from "classnames";
 import styles from "./upload.module.scss";
 
@@ -22,26 +22,19 @@ const columns = [
     key: "title"
   },
   {
-    title: "Price",
-    dataIndex: "price",
-    key: "price",
-    render: price => <span>{price} SHARE</span>
+    title: "Downloads",
+    dataIndex: "downloads",
+    key: "downloads"
   },
   {
-    title: "Download",
-    dataIndex: "download",
-    key: "download",
-    render: download => <Progress percent={download} />
-  },
-  {
-    title: "Upload",
-    dataIndex: "upload",
-    key: "upload"
-  },
-  {
-    title: "Seed Earning",
+    title: "Total Earning",
     dataIndex: "earning",
     key: "earning"
+  },
+  {
+    title: "Seed",
+    dataIndex: "seed",
+    key: "seed"
   },
   {
     title: "Action",
@@ -56,74 +49,43 @@ const columns = [
 const dataSource = [
   {
     index: 1,
-    type: "Music",
-    title: "Yuna",
-    price: 3,
-    download: 13,
-    upload: "14/kb",
-    earning: "10 SHARE"
+    type: "Photo",
+    title: "Snow White",
+    downloads: 0,
+    earning: "0 SHARE",
+    seed: 1
   },
   {
     index: 2,
-    title: "Culture",
-    type: "Music",
-    price: 9,
-    download: 100,
-    upload: "65mb",
-    earning: "37 SHARE"
+    type: "Photo",
+    title: "Sunset",
+    downloads: 14,
+    earning: "48 SHARE",
+    seed: 4
   },
   {
     index: 3,
-    title: "Ghost",
-    type: "Music",
-    price: 6,
-    download: 100,
-    upload: "22mb",
-    earning: "78 SHARE"
-  },
-  {
-    index: 4,
-    title: "Dear",
     type: "Photo",
-
-    price: 67,
-    download: 100,
-    upload: "14mb",
-    earning: "197 SHARE"
-  },
-  {
-    index: 5,
-    title: "Awake",
-    type: "Music",
-    price: 4,
-    download: 100,
-    upload: "40mb",
-    earning: "48 SHARE"
-  },
-  {
-    index: 1,
-    type: "Photo",
-    title: "Clear Sky",
-    price: 898,
-    download: 100,
-    upload: "102mb",
-    earning: "480 SHARE"
+    title: "Flower Girl",
+    downloads: 182,
+    earning: "2,049 SHARE",
+    seed: 32
   }
 ];
 
-class PurchasedPage extends Component {
+class MycontentPage extends Component {
   render() {
     return (
       <Layout>
         <Header />
         <div className={styles.container}>
-          <Sider current="purchased" />
+          <Sider current="mycontent" />
           <div className={styles.contentContainer}>
             <div className={classNames(styles.topContainer)}>
               <span
                 style={{ fontSize: 24, fontWeight: "bold", color: "#151516" }}
               >
-                Purchased
+                My Content
               </span>
             </div>
             <div className={styles.innerContainer} style={{ paddingTop: 0 }}>
@@ -144,4 +106,4 @@ class PurchasedPage extends Component {
   }
 }
 
-export default PurchasedPage;
+export default MycontentPage;
