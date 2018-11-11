@@ -37,28 +37,28 @@ public:
         init_abi_ser(abi_ser_token, N(eosharetoken));
         init_abi_ser(abi_ser_agent, N(eoshareagent));
 
-        auto token = create( N(eosharetoken), asset::from_string("100000.0000 EOSHARE"));
+        auto token = create( N(eosharetoken), asset::from_string("100000.0000 SHARE"));
         produce_blocks(1);
-        issue( N(eosharetoken), N(eosharetoken), asset::from_string("1000.0000 EOSHARE"), "test" );
+        issue( N(eosharetoken), N(eosharetoken), asset::from_string("1000.0000 SHARE"), "test" );
 
         push_action( N(eosharetoken), N(transfer), N(eosharetoken), mvo()
             ("from", "eosharetoken") 
             ("to", "user1") 
-            ("quantity", "20.0000 EOSHARE")
+            ("quantity", "20.0000 SHARE")
             ("memo", "test")
         );
 
         push_action( N(eosharetoken), N(transfer), N(eosharetoken), mvo()
             ("from", "eosharetoken") 
             ("to", "user2") 
-            ("quantity", "20.0000 EOSHARE")
+            ("quantity", "20.0000 SHARE")
             ("memo", "test")
         );
 
         push_action( N(eosharetoken), N(transfer), N(eosharetoken), mvo()
             ("from", "eosharetoken") 
             ("to", "user3") 
-            ("quantity", "20.0000 EOSHARE")
+            ("quantity", "20.0000 SHARE")
             ("memo", "test")
         );
     }
@@ -121,7 +121,7 @@ BOOST_FIXTURE_TEST_CASE( upload_tests, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "1.0000 EOSHARE")
+        ("price", "1.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", false)
     );
@@ -132,7 +132,7 @@ BOOST_FIXTURE_TEST_CASE( upload_tests, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content2-display")
         ("content_type", 1)
-        ("price", "2.0000 EOSHARE")
+        ("price", "2.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", false)
     );
@@ -149,7 +149,7 @@ BOOST_FIXTURE_TEST_CASE( modify_tests, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "1.0000 EOSHARE")
+        ("price", "1.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", false)
     );
@@ -160,7 +160,7 @@ BOOST_FIXTURE_TEST_CASE( modify_tests, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content2-display")
         ("content_type", 1)
-        ("price", "2.0000 EOSHARE")
+        ("price", "2.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", false)
     );
@@ -171,7 +171,7 @@ BOOST_FIXTURE_TEST_CASE( modify_tests, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content3-display")
         ("content_type", 1)
-        ("price", "3.0000 EOSHARE")
+        ("price", "3.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", false)
     );
@@ -186,7 +186,7 @@ BOOST_FIXTURE_TEST_CASE( modify_tests, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "2.0000 EOSHARE")
+        ("price", "2.0000 SHARE")
         ("storage_uri", "/xxx/ii")
         ("status", false)
     );
@@ -201,7 +201,7 @@ BOOST_FIXTURE_TEST_CASE( changestatus_tests, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "1.0000 EOSHARE")
+        ("price", "1.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", false)
     );
@@ -225,7 +225,7 @@ BOOST_FIXTURE_TEST_CASE( purchase_test, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "1.0000 EOSHARE")
+        ("price", "1.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", true)
     );
@@ -236,7 +236,7 @@ BOOST_FIXTURE_TEST_CASE( purchase_test, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "1.0000 EOSHARE")
+        ("price", "1.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", true)
     );
@@ -247,7 +247,7 @@ BOOST_FIXTURE_TEST_CASE( purchase_test, eoshare_tester ) try {
         ("artist_name", "artest2-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "1.0000 EOSHARE")
+        ("price", "1.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", true)
     );
@@ -258,7 +258,7 @@ BOOST_FIXTURE_TEST_CASE( purchase_test, eoshare_tester ) try {
         ("artist_name", "artest2-display")
         ("content_title", "content2-display")
         ("content_type", 1)
-        ("price", "2.0000 EOSHARE")
+        ("price", "2.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", true)
     );
@@ -267,7 +267,7 @@ BOOST_FIXTURE_TEST_CASE( purchase_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user1), mvo()
         ("from", "user1") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "1")
     );
     produce_blocks(1);
@@ -275,7 +275,7 @@ BOOST_FIXTURE_TEST_CASE( purchase_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user1), mvo()
         ("from", "user1") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "2")
     );
     produce_blocks(1);
@@ -283,7 +283,7 @@ BOOST_FIXTURE_TEST_CASE( purchase_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user1), mvo()
         ("from", "user1") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "3")
     );
     produce_blocks(1);
@@ -291,7 +291,7 @@ BOOST_FIXTURE_TEST_CASE( purchase_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user1), mvo()
         ("from", "user1") 
         ("to", "eoshareagent") 
-        ("quantity", "2.0000 EOSHARE")
+        ("quantity", "2.0000 SHARE")
         ("memo", "4")
     );
     produce_blocks(1);
@@ -309,7 +309,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "1.0000 EOSHARE")
+        ("price", "1.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", true)
     );
@@ -320,7 +320,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "1.0000 EOSHARE")
+        ("price", "1.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", true)
     );
@@ -331,7 +331,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
         ("artist_name", "artest2-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "1.0000 EOSHARE")
+        ("price", "1.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", true)
     );
@@ -342,7 +342,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
         ("artist_name", "artest2-display")
         ("content_title", "content2-display")
         ("content_type", 1)
-        ("price", "2.0000 EOSHARE")
+        ("price", "2.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", true)
     );
@@ -351,7 +351,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user1), mvo()
         ("from", "user1") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "1")
     );
     produce_blocks(1);
@@ -359,7 +359,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user1), mvo()
         ("from", "user1") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "2")
     );
     produce_blocks(1);
@@ -367,7 +367,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user1), mvo()
         ("from", "user1") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "3")
     );
     produce_blocks(1);
@@ -375,7 +375,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user1), mvo()
         ("from", "user1") 
         ("to", "eoshareagent") 
-        ("quantity", "2.0000 EOSHARE")
+        ("quantity", "2.0000 SHARE")
         ("memo", "4")
     );
     produce_blocks(1);
@@ -383,7 +383,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user2), mvo()
         ("from", "user2") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "1")
     );
     produce_blocks(1);
@@ -391,7 +391,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user2), mvo()
         ("from", "user2") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "2")
     );
     produce_blocks(1);
@@ -399,7 +399,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user2), mvo()
         ("from", "user2") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "3")
     );
     produce_blocks(1);
@@ -407,7 +407,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user2), mvo()
         ("from", "user2") 
         ("to", "eoshareagent") 
-        ("quantity", "2.0000 EOSHARE")
+        ("quantity", "2.0000 SHARE")
         ("memo", "4")
     );
     produce_blocks(1);
@@ -415,7 +415,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user3), mvo()
         ("from", "user3") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "1")
     );
     produce_blocks(1);
@@ -423,7 +423,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user3), mvo()
         ("from", "user3") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "2")
     );
     produce_blocks(1);
@@ -431,7 +431,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user3), mvo()
         ("from", "user3") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "3")
     );
     produce_blocks(1);
@@ -439,7 +439,7 @@ BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user3), mvo()
         ("from", "user3") 
         ("to", "eoshareagent") 
-        ("quantity", "2.0000 EOSHARE")
+        ("quantity", "2.0000 SHARE")
         ("memo", "4")
     );
     produce_blocks(1);
@@ -474,7 +474,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "1.0000 EOSHARE")
+        ("price", "1.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", true)
     );
@@ -485,7 +485,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
         ("artist_name", "artest1-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "1.0000 EOSHARE")
+        ("price", "1.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", true)
     );
@@ -496,7 +496,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
         ("artist_name", "artest2-display")
         ("content_title", "content-display")
         ("content_type", 1)
-        ("price", "1.0000 EOSHARE")
+        ("price", "1.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", true)
     );
@@ -507,7 +507,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
         ("artist_name", "artest2-display")
         ("content_title", "content2-display")
         ("content_type", 1)
-        ("price", "2.0000 EOSHARE")
+        ("price", "2.0000 SHARE")
         ("storage_uri", "/xxx/yyy")
         ("status", true)
     );
@@ -516,7 +516,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user1), mvo()
         ("from", "user1") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "1")
     );
     produce_blocks(1);
@@ -524,7 +524,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user1), mvo()
         ("from", "user1") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "2")
     );
     produce_blocks(1);
@@ -532,7 +532,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user1), mvo()
         ("from", "user1") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "3")
     );
     produce_blocks(1);
@@ -540,7 +540,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user1), mvo()
         ("from", "user1") 
         ("to", "eoshareagent") 
-        ("quantity", "2.0000 EOSHARE")
+        ("quantity", "2.0000 SHARE")
         ("memo", "4")
     );
     produce_blocks(1);
@@ -548,7 +548,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user2), mvo()
         ("from", "user2") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "1")
     );
     produce_blocks(1);
@@ -556,7 +556,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user2), mvo()
         ("from", "user2") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "2")
     );
     produce_blocks(1);
@@ -564,7 +564,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user2), mvo()
         ("from", "user2") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "3")
     );
     produce_blocks(1);
@@ -572,7 +572,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user2), mvo()
         ("from", "user2") 
         ("to", "eoshareagent") 
-        ("quantity", "2.0000 EOSHARE")
+        ("quantity", "2.0000 SHARE")
         ("memo", "4")
     );
     produce_blocks(1);
@@ -580,7 +580,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user3), mvo()
         ("from", "user3") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "1")
     );
     produce_blocks(1);
@@ -588,7 +588,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user3), mvo()
         ("from", "user3") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "2")
     );
     produce_blocks(1);
@@ -596,7 +596,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user3), mvo()
         ("from", "user3") 
         ("to", "eoshareagent") 
-        ("quantity", "1.0000 EOSHARE")
+        ("quantity", "1.0000 SHARE")
         ("memo", "3")
     );
     produce_blocks(1);
@@ -604,7 +604,7 @@ BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
     push_action( N(eosharetoken), N(transfer), N(user3), mvo()
         ("from", "user3") 
         ("to", "eoshareagent") 
-        ("quantity", "2.0000 EOSHARE")
+        ("quantity", "2.0000 SHARE")
         ("memo", "4")
     );
     produce_blocks(1);

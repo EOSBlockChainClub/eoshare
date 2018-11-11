@@ -16,7 +16,7 @@ namespace eoshare {
     using eosio::asset;
 
     name eoshare_token = "eosharetoken"_n;
-    symbol eoshare_symbol = eosio::symbol("EOSHARE", 4);
+    symbol eoshare_symbol = eosio::symbol("SHARE", 4);
 
    class [[eosio::contract("eoshare")]] eoshare : public contract {
         public:
