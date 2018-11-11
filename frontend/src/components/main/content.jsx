@@ -125,7 +125,7 @@ class Content extends Component {
         return (
           <ContentCard
             key={shortid.generate()}
-            className="col-xs-4"
+            className="col-xs-3"
             title={item.title}
             creator={item.creator}
             price={item.price}
