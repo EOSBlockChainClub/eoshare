@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Button, Input, Icon, Avatar } from "antd";
+import { Button, Input, Icon, Avatar, Upload, message } from "antd";
 import styles from "./header.module.scss";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 
 class Header extends Component {
   render() {
@@ -18,15 +18,35 @@ class Header extends Component {
               placeholder="Search Creator Name or Content"
             />
           </div>
-          <Link to="/upload">
+          <Upload
+            showUploadList={false}
+            onChange={info => {
+              const status = info.file.status;
+              if (status !== "uploading") {
+                console.log(info.file, info.fileList);
+              }
+              if (status === "done") {
+                navigate("/upload");
+                message.success(
+                  `${info.file.name} file uploaded successfully.`
+                );
+              } else if (status === "error") {
+                message.error(`${info.file.name} file upload failed.`);
+              }
+            }}
+          >
             <Button ghost type="primary">
               <span>
                 <Icon type="upload" style={{ marginRight: 4 }} />
                 UPLOAD
               </span>
             </Button>
-          </Link>
+          </Upload>
           <Avatar
+            onClick={() => {
+              navigate("/mycontent");
+            }}
+            style={{ cursor: "pointer" }}
             src="/image/avatar.png"
             className={styles.avatar}
             size="default"
