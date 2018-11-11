@@ -1,23 +1,26 @@
 import React, { Component } from "react";
 import { Layout, Header, Sider } from "components/layouts";
-import { Input, Button } from "antd";
+import { Input, Button, message } from "antd";
+import { navigate } from "gatsby";
 import classNames from "classnames";
 import styles from "./upload.module.scss";
-// import axios from "axios";
+import axios from "axios";
 
-// const API_ENDPOINT = "http://localhost:9001";
+const API_ENDPOINT = "http://localhost:9001";
 
 class UploadPage extends Component {
   state = {
-    upload: true
+    loading: false
   };
   handleClick = () => {
-    // axios.post("/create").then( result => {
-    //
-    // });
+    this.setState({ loading: true });
+    axios.post(`${API_ENDPOINT}/create`).then(result => {
+      message.success("Share Done!");
+      navigate("/mycontent");
+    });
   };
   render() {
-    const { upload } = this.state;
+    const { loading } = this.state;
     return (
       <Layout>
         <Header />
@@ -32,7 +35,11 @@ class UploadPage extends Component {
                   Payment Account Name :{" "}
                   <strong style={{ color: "#1f1f1f" }}>dexeostestnt</strong>
                 </span>
-                <Button type="primary" onClick={this.handleClick}>
+                <Button
+                  loading={loading}
+                  type="primary"
+                  onClick={this.handleClick}
+                >
                   SHARE!
                 </Button>
               </span>

@@ -21,9 +21,7 @@ class Uploader extends Component {
     };
 
     return (
-      <div
-        style={{ display: "flex", width: "100%", padding: 40 }}
-      >
+      <div style={{ display: "flex", width: "100%", padding: 40 }}>
         <Dragger {...props} style={{ padding: 20 }}>
           <p className="ant-upload-drag-icon">
             <Icon type="inbox" />
