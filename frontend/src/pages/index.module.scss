@@ -1,0 +1,11 @@
+@import "~scss/theme/default";
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+}
+@include respond(hidpi-laptop) {
+  .container {
+    padding: 0 20px;
+  }
+}

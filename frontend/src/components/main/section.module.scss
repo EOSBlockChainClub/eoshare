@@ -1,0 +1,17 @@
+.section {
+  padding: 40px 0;
+}
+
+.title {
+  font-weight: bold;
+  font-weight: 28px;
+  padding-top: 30px;
+}
+
+.content {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 1440px;
+  overflow-x: auto;
+}
