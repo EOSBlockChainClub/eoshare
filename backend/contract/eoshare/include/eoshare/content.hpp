@@ -3,9 +3,11 @@
 #include <eosiolib/asset.hpp>
 #include <eosiolib/eosio.hpp>
 #include <string>
+#include <vector>
 
 namespace eoshare {
     using std::string;
+    using std::vector;
     using eosio::name;
     using eosio::asset;
     using eosio::indexed_by;
@@ -19,11 +21,25 @@ namespace eoshare {
         uint8_t content_type;
         string storage_url;
         asset price;
+        bool status;
         uint64_t primary_key() const { return content_id; }
         uint64_t by_name() const { return owner.value; }
     };
-
     typedef eosio::multi_index< "contents"_n, content,
         indexed_by< "name"_n, const_mem_fun<content, uint64_t, &content::by_name>  >
-    > contents;
+    > content_table;
+
+    struct [[eosio::table, eosio::contract("eoshare")]] purchase {
+        name owner;
+        uint64_t content_id;
+        uint64_t primary_key() const { return owner.value; }
+    };
+    typedef eosio::multi_index< "purchases"_n, purchase> purchase_table;
+
+    struct [[eosio::table, eosio::contract("eoshare")]] seed {
+        uint64_t content_id;
+        vector<name> names;
+        uint64_t primary_key() const { return content_id; }
+    };
+    typedef eosio::multi_index< "seeds"_n, purchase> seed_table;
 } /// namespace eoshare

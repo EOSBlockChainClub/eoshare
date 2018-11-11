@@ -26,7 +26,13 @@ namespace eoshare {
             }
 
             [[eosio::action]]
-            void upload(name owner, string artist_name, uint64_t content_id, string content_title, uint8_t content_type, asset quantity);
+            void upload(name owner, string artist_name, string content_title, uint8_t content_type, asset quantity, bool status);
+
+            [[eosio::action]]
+            void modify(name owner, uint64_t content_id, string artist_name, string content_title, uint8_t content_type, asset quantity);
+
+            [[eosio::action]]
+            void changestatus(name owner, uint64_t content_id, bool status);
 
             [[eosio::action]]
             void download(name user, uint64_t content_id);
