@@ -122,6 +122,7 @@ public:
    abi_serializer abi_ser;
 };
 
+/*
 BOOST_AUTO_TEST_SUITE(eosio_token_tests)
 
 BOOST_FIXTURE_TEST_CASE( create_tests, eosio_token_tester ) try {
@@ -414,3 +415,4 @@ BOOST_FIXTURE_TEST_CASE( close_tests, eosio_token_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 BOOST_AUTO_TEST_SUITE_END()
+*/

@@ -38,13 +38,13 @@ namespace eoshare {
             void changestatus(name owner, uint64_t content_id, bool status);
 
             [[eosio::action]]
-            void download(name user, uint64_t content_id, string random);
-
-            [[eosio::action]]
             void share(name user, uint64_t content_id);
 
             [[eosio::action]]
             void transfer(uint64_t sender, uint64_t receiver); //  notify
+
+            [[eosio::action]]
+            void download(name user, uint64_t content_id, string random);
 
         private:
             struct [[eosio::table]] env {

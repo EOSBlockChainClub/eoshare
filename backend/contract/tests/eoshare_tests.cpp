@@ -40,12 +40,34 @@ public:
         auto token = create( N(eosharetoken), asset::from_string("100000.0000 EOSHARE"));
         produce_blocks(1);
         issue( N(eosharetoken), N(eosharetoken), asset::from_string("1000.0000 EOSHARE"), "test" );
+
+        push_action( N(eosharetoken), N(transfer), N(eosharetoken), mvo()
+            ("from", "eosharetoken") 
+            ("to", "user1") 
+            ("quantity", "20.0000 EOSHARE")
+            ("memo", "test")
+        );
+
+        push_action( N(eosharetoken), N(transfer), N(eosharetoken), mvo()
+            ("from", "eosharetoken") 
+            ("to", "user2") 
+            ("quantity", "20.0000 EOSHARE")
+            ("memo", "test")
+        );
+
+        push_action( N(eosharetoken), N(transfer), N(eosharetoken), mvo()
+            ("from", "eosharetoken") 
+            ("to", "user3") 
+            ("quantity", "20.0000 EOSHARE")
+            ("memo", "test")
+        );
     }
 
     void init_abi_ser(abi_serializer& abi_ser, account_name name) {
         const auto& accnt = control->db().get<account_object,by_name>( name );
         abi_def abi;
-        BOOST_REQUIRE_EQUAL(abi_serializer::to_abi(accnt.abi, abi), true);
+        // BOOST_REQUIRE_EQUAL(abi_serializer::to_abi(accnt.abi, abi), true);
+        abi_serializer::to_abi(accnt.abi, abi);
         abi_ser.set_abi(abi, abi_serializer_max_time);
     }
 
@@ -54,7 +76,7 @@ public:
     }
 
     bool get_purchase(purchase_t& purchase, account_name name) {
-        return get_table_entry(purchase, N(eoshareagent), N(eoshareagent), N(purhases), name);
+        return get_table_entry(purchase, N(eoshareagent), N(eoshareagent), N(purchases), name);
     }
 
    bool get_seed(seed_t& seed, uint64_t content_id) {
@@ -198,14 +220,419 @@ BOOST_FIXTURE_TEST_CASE( changestatus_tests, eoshare_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 BOOST_FIXTURE_TEST_CASE( purchase_test, eoshare_tester ) try {
+    push_action( N(eoshareagent), N(upload), N(artist1), mvo()
+        ("owner", "artist1") 
+        ("artist_name", "artest1-display")
+        ("content_title", "content-display")
+        ("content_type", 1)
+        ("price", "1.0000 EOSHARE")
+        ("storage_uri", "/xxx/yyy")
+        ("status", true)
+    );
+    produce_blocks(1);
+
+    push_action( N(eoshareagent), N(upload), N(artist1), mvo()
+        ("owner", "artist1") 
+        ("artist_name", "artest1-display")
+        ("content_title", "content-display")
+        ("content_type", 1)
+        ("price", "1.0000 EOSHARE")
+        ("storage_uri", "/xxx/yyy")
+        ("status", true)
+    );
+    produce_blocks(1);
+
+    push_action( N(eoshareagent), N(upload), N(artist2), mvo()
+        ("owner", "artist2") 
+        ("artist_name", "artest2-display")
+        ("content_title", "content-display")
+        ("content_type", 1)
+        ("price", "1.0000 EOSHARE")
+        ("storage_uri", "/xxx/yyy")
+        ("status", true)
+    );
+    produce_blocks(1);
+
+     push_action( N(eoshareagent), N(upload), N(artist2), mvo()
+        ("owner", "artist2") 
+        ("artist_name", "artest2-display")
+        ("content_title", "content2-display")
+        ("content_type", 1)
+        ("price", "2.0000 EOSHARE")
+        ("storage_uri", "/xxx/yyy")
+        ("status", true)
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user1), mvo()
+        ("from", "user1") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "1")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user1), mvo()
+        ("from", "user1") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "2")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user1), mvo()
+        ("from", "user1") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "3")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user1), mvo()
+        ("from", "user1") 
+        ("to", "eoshareagent") 
+        ("quantity", "2.0000 EOSHARE")
+        ("memo", "4")
+    );
+    produce_blocks(1);
+
+    purchase_t purchase;
+    get_purchase(purchase, N(user1));
+
+    BOOST_TEST_MESSAGE( fc::json::to_pretty_string(purchase) );
 
 } FC_LOG_AND_RETHROW()
 
 BOOST_FIXTURE_TEST_CASE( share_test, eoshare_tester ) try {
+    push_action( N(eoshareagent), N(upload), N(artist1), mvo()
+        ("owner", "artist1") 
+        ("artist_name", "artest1-display")
+        ("content_title", "content-display")
+        ("content_type", 1)
+        ("price", "1.0000 EOSHARE")
+        ("storage_uri", "/xxx/yyy")
+        ("status", true)
+    );
+    produce_blocks(1);
 
+    push_action( N(eoshareagent), N(upload), N(artist1), mvo()
+        ("owner", "artist1") 
+        ("artist_name", "artest1-display")
+        ("content_title", "content-display")
+        ("content_type", 1)
+        ("price", "1.0000 EOSHARE")
+        ("storage_uri", "/xxx/yyy")
+        ("status", true)
+    );
+    produce_blocks(1);
+
+    push_action( N(eoshareagent), N(upload), N(artist2), mvo()
+        ("owner", "artist2") 
+        ("artist_name", "artest2-display")
+        ("content_title", "content-display")
+        ("content_type", 1)
+        ("price", "1.0000 EOSHARE")
+        ("storage_uri", "/xxx/yyy")
+        ("status", true)
+    );
+    produce_blocks(1);
+
+     push_action( N(eoshareagent), N(upload), N(artist2), mvo()
+        ("owner", "artist2") 
+        ("artist_name", "artest2-display")
+        ("content_title", "content2-display")
+        ("content_type", 1)
+        ("price", "2.0000 EOSHARE")
+        ("storage_uri", "/xxx/yyy")
+        ("status", true)
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user1), mvo()
+        ("from", "user1") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "1")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user1), mvo()
+        ("from", "user1") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "2")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user1), mvo()
+        ("from", "user1") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "3")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user1), mvo()
+        ("from", "user1") 
+        ("to", "eoshareagent") 
+        ("quantity", "2.0000 EOSHARE")
+        ("memo", "4")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user2), mvo()
+        ("from", "user2") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "1")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user2), mvo()
+        ("from", "user2") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "2")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user2), mvo()
+        ("from", "user2") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "3")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user2), mvo()
+        ("from", "user2") 
+        ("to", "eoshareagent") 
+        ("quantity", "2.0000 EOSHARE")
+        ("memo", "4")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user3), mvo()
+        ("from", "user3") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "1")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user3), mvo()
+        ("from", "user3") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "2")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user3), mvo()
+        ("from", "user3") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "3")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user3), mvo()
+        ("from", "user3") 
+        ("to", "eoshareagent") 
+        ("quantity", "2.0000 EOSHARE")
+        ("memo", "4")
+    );
+    produce_blocks(1);
+    
+    push_action( N(eoshareagent), N(share), N(user1), mvo()
+        ("user", "user1") 
+        ("content_id", 4)
+    );
+    produce_blocks(1);
+
+    push_action( N(eoshareagent), N(share), N(user2), mvo()
+        ("user", "user2") 
+        ("content_id", 4)
+    );
+    produce_blocks(1);
+
+    push_action( N(eoshareagent), N(share), N(user3), mvo()
+        ("user", "user3") 
+        ("content_id", 4)
+    );
+    produce_blocks(1);
+      
+    seed_t seed ;
+    get_seed(seed, 4);
+
+    BOOST_TEST_MESSAGE( fc::json::to_pretty_string(seed) );    
 } FC_LOG_AND_RETHROW()
 
 BOOST_FIXTURE_TEST_CASE( download_test, eoshare_tester ) try {
+    push_action( N(eoshareagent), N(upload), N(artist1), mvo()
+        ("owner", "artist1") 
+        ("artist_name", "artest1-display")
+        ("content_title", "content-display")
+        ("content_type", 1)
+        ("price", "1.0000 EOSHARE")
+        ("storage_uri", "/xxx/yyy")
+        ("status", true)
+    );
+    produce_blocks(1);
+
+    push_action( N(eoshareagent), N(upload), N(artist1), mvo()
+        ("owner", "artist1") 
+        ("artist_name", "artest1-display")
+        ("content_title", "content-display")
+        ("content_type", 1)
+        ("price", "1.0000 EOSHARE")
+        ("storage_uri", "/xxx/yyy")
+        ("status", true)
+    );
+    produce_blocks(1);
+
+    push_action( N(eoshareagent), N(upload), N(artist2), mvo()
+        ("owner", "artist2") 
+        ("artist_name", "artest2-display")
+        ("content_title", "content-display")
+        ("content_type", 1)
+        ("price", "1.0000 EOSHARE")
+        ("storage_uri", "/xxx/yyy")
+        ("status", true)
+    );
+    produce_blocks(1);
+
+     push_action( N(eoshareagent), N(upload), N(artist2), mvo()
+        ("owner", "artist2") 
+        ("artist_name", "artest2-display")
+        ("content_title", "content2-display")
+        ("content_type", 1)
+        ("price", "2.0000 EOSHARE")
+        ("storage_uri", "/xxx/yyy")
+        ("status", true)
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user1), mvo()
+        ("from", "user1") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "1")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user1), mvo()
+        ("from", "user1") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "2")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user1), mvo()
+        ("from", "user1") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "3")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user1), mvo()
+        ("from", "user1") 
+        ("to", "eoshareagent") 
+        ("quantity", "2.0000 EOSHARE")
+        ("memo", "4")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user2), mvo()
+        ("from", "user2") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "1")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user2), mvo()
+        ("from", "user2") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "2")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user2), mvo()
+        ("from", "user2") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "3")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user2), mvo()
+        ("from", "user2") 
+        ("to", "eoshareagent") 
+        ("quantity", "2.0000 EOSHARE")
+        ("memo", "4")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user3), mvo()
+        ("from", "user3") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "1")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user3), mvo()
+        ("from", "user3") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "2")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user3), mvo()
+        ("from", "user3") 
+        ("to", "eoshareagent") 
+        ("quantity", "1.0000 EOSHARE")
+        ("memo", "3")
+    );
+    produce_blocks(1);
+
+    push_action( N(eosharetoken), N(transfer), N(user3), mvo()
+        ("from", "user3") 
+        ("to", "eoshareagent") 
+        ("quantity", "2.0000 EOSHARE")
+        ("memo", "4")
+    );
+    produce_blocks(1);
+    
+    push_action( N(eoshareagent), N(share), N(user1), mvo()
+        ("user", "user1") 
+        ("content_id", 4)
+    );
+    produce_blocks(1);
+
+    push_action( N(eoshareagent), N(share), N(user2), mvo()
+        ("user", "user2") 
+        ("content_id", 4)
+    );
+    produce_blocks(1);
+
+    push_action( N(eoshareagent), N(share), N(user3), mvo()
+        ("user", "user3") 
+        ("content_id", 4)
+    );
+    produce_blocks(1);
+      
+    push_action( N(eoshareagent), N(download), N(user3), mvo()
+        ("user", "user3") 
+        ("content_id", 4)
+        ("random", "randomhex")
+    );
+    produce_blocks(1);
 
 } FC_LOG_AND_RETHROW()
 

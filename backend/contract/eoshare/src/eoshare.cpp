@@ -3,9 +3,9 @@
 #define EOSIO_DISPATCH_EX( TYPE, MEMBERS ) \
 extern "C" { \
     void apply( uint64_t receiver, uint64_t code, uint64_t action ) { \
-        if( code == receiver || receiver == eoshare::eoshare_token.value) { \
+        if( code == receiver || code == eoshare::eoshare_token.value) { \
             if( action == "transfer"_n.value){ \
-                eosio_assert( code == eoshare::eoshare_token.value, "Must transfer EOSHARE"); \
+                eosio_assert( code == eoshare::eoshare_token.value, "muse transfer EOSHARE"); \
             } \
             switch( action ) { \
                 EOSIO_DISPATCH_HELPER( TYPE, MEMBERS ) \
@@ -81,11 +81,6 @@ namespace eoshare {
         });
     }
 
-    void eoshare::download(name user, uint64_t content_id, string random) {
-        require_auth(user);
-
-        eosio_assert(content_id > 0, "must be over 0"); 
-    }
 
     void eoshare::share(name user, uint64_t content_id) {
         require_auth(user);
@@ -114,6 +109,13 @@ namespace eoshare {
         uint64_t content_id = std::stoull(trx_data.memo.c_str());
         eosio_assert(content_id >= 0, "must be over 0"); 
 
+        content_table contents(get_self(), get_self().value);
+		auto itr_ = contents.find(content_id);
+        eosio_assert(itr_ != contents.end(), "content not exist"); 
+
+        //eosio_assert((*itr_).price != trx_data.quantity, "price mismatch"); 
+        eosio_assert((*itr_).price.amount == trx_data.quantity.amount, "price mismatch"); 
+
         purchase_table purchases(get_self(), get_self().value);
 		auto itr = purchases.find(trx_data.from.value);
         if (itr == purchases.end()) {
@@ -129,6 +131,20 @@ namespace eoshare {
             });
         }
     }
+
+    void eoshare::download(name user, uint64_t content_id, string random) {
+        require_auth(user);
+
+        eosio_assert(content_id > 0, "must be over 0"); 
+
+        purchase_table purchases(get_self(), get_self().value);
+		auto itr = purchases.find(user.value);
+        eosio_assert(itr != purchases.end(), "not purchased"); 
+
+        // seed_table seeds(get_self(), get_self().value);
+		// auto itr_ = seeds.find(content_id);
+    }
+
 } /// namespace share 
 
-EOSIO_DISPATCH_EX( eoshare::eoshare, (upload)(modify)(changestatus)(download)(share)(transfer) )
+EOSIO_DISPATCH_EX( eoshare::eoshare, (upload)(modify)(changestatus)(share)(transfer)(download) )
