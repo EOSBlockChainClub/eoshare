@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Input, Icon } from "antd";
+import { Button, Input, Icon, Avatar } from "antd";
 import styles from "./header.module.scss";
 class Header extends Component {
   render() {
@@ -17,6 +17,7 @@ class Header extends Component {
           <Button ghost type="primary">
             UPLOAD
           </Button>
+          <Avatar className={styles.avatar} size="default" icon="user" />
         </div>
       </div>
     );
