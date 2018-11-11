@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Dialog from "rc-dialog";
-import { Tag, Input, Button } from "antd";
+import { Tag, Input, Button, message } from "antd";
 import { navigate } from "gatsby";
 import "./pay.scss";
 class Pay extends Component {
@@ -23,6 +23,7 @@ class Pay extends Component {
                 style={{ padding: "0 24px" }}
                 type="primary"
                 onClick={() => {
+                  message.success("Buy Success!");
                   navigate("/purchased");
                 }}
               >
