@@ -1,5 +1,6 @@
 .section {
   padding: 40px 0;
+  border-bottom: 1px solid #ccc;
 }
 
 .title {
@@ -14,4 +15,5 @@
   width: 100%;
   max-width: 1440px;
   overflow-x: auto;
+  padding-bottom: 30px;
 }
