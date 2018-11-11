@@ -8696,7 +8696,7 @@ rc-collapse@~1.10.0:
     prop-types "^15.5.6"
     rc-animate "2.x"
 
-rc-dialog@~7.2.1:
+rc-dialog@^7.2.1, rc-dialog@~7.2.1:
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/rc-dialog/-/rc-dialog-7.2.1.tgz#ac92fcffdf2a0eaa64b77f829336653d911a57be"
   integrity sha512-UgKNFq6ekC7XZUnXYss/9/HSDajwy04qJ++8Iuecvfq48FbMf1k9UtTW0QGcbKIfLHWUJV13/DsTBJki2H6vWw==

@@ -4,6 +4,7 @@ import styles from "./sider.module.scss";
 const { Sider } = Layout;
 class SideMenu extends Component {
   render() {
+    const { current } = this.props;
     return (
       <Sider
         width={240}
@@ -22,7 +23,11 @@ class SideMenu extends Component {
             NEW UPLOAD
           </Button>
         </div>
-        <Menu mode="inline" defaultSelectedKeys={[]} style={{ borderRight: 0 }}>
+        <Menu
+          mode="inline"
+          defaultSelectedKeys={[current]}
+          style={{ borderRight: 0 }}
+        >
           <Menu.Item key="mycontent">
             <span>
               <Badge

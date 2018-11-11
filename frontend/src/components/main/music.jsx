@@ -3,12 +3,14 @@ import sectionStyles from "./section.module.scss";
 import axios from "axios";
 import MusicCard from "./musicCard";
 import shortid from "shortid";
+import Pay from "components/main/pay";
 
 const API_ENDPOINT = "http://localhost:9001";
 
 class Music extends Component {
   state = {
-    music: []
+    music: [],
+    visible: false
   };
 
   componentDidMount() {
@@ -31,6 +33,9 @@ class Music extends Component {
             creator={item.creatorName}
             price={item.price}
             src={`${API_ENDPOINT}/public${item.thumbnail}`}
+            onClick={() => {
+              this.setState({ visible: true });
+            }}
           />
         );
       });
@@ -40,8 +45,15 @@ class Music extends Component {
   };
 
   render() {
+    const { visible } = this.state;
     return (
       <section className={sectionStyles.section}>
+        <Pay
+          visible={visible}
+          onClose={() => {
+            this.setState({ visible: false });
+          }}
+        />
         <h1 className={sectionStyles.title}>NEW MUSIC</h1>
         <div className={sectionStyles.content}>{this.renderMusicCard()}</div>
       </section>
