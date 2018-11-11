@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Layout, Header } from "components/layouts";
-import { Music, Photo } from "components/main/";
+import { Music, Photo, Content } from "components/main/";
 import styles from "./index.module.scss";
 class IndexPage extends Component {
   render() {
@@ -11,6 +11,7 @@ class IndexPage extends Component {
           {/*Hello EOS Hackathon!*/}
           <Music />
           <Photo />
+          <Content />
         </div>
       </Layout>
     );

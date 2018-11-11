@@ -1,3 +1,5 @@
+@import "~scss/theme/default";
+
 .section {
   padding: 40px 0;
   border-bottom: 1px solid #ccc;
@@ -5,7 +7,6 @@
 
 .title {
   font-weight: bold;
-  font-weight: 28px;
   padding-top: 30px;
 }
 
@@ -16,4 +17,38 @@
   max-width: 1440px;
   overflow-x: auto;
   padding-bottom: 30px;
+}
+.total {
+  margin-top: 30px;
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  padding-bottom: 30px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tags {
+  margin-bottom: 10px;
+}
+
+.sort {
+  span {
+    font-size: 16px;
+    font-weight: bold;
+    color: $secondary-color;
+    margin-right: 10px;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }

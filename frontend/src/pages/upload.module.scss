@@ -1,37 +1,56 @@
 @import "~scss/theme/default";
-.container {
-  max-width: 1440px;
-  width: 100%;
-  margin: auto;
-}
-@include respond(hidpi-laptop) {
-  .container {
-    padding: 0 20px;
-  }
-}
 
 .title {
   font-weight: bold;
-  font-weight: 28px;
-  padding-top: 30px;
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  letter-spacing: 0.1px;
+  color: $text-main-color;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  flex: 1 auto;
+}
+.innerContainer {
+  display: flex;
+  padding: 20px;
+  margin-top: 30px;
 }
 
-.innerContainer{
-  padding:20px;
-}
-
-.horizontal{
-  display:inline-flex;
+.horizontal {
+  display: inline-flex;
   flex-direction: row;
 }
 
-.tag{
-  margin-right: 5px;
-  padding:10px;
-  background-color: #208ef3;
-  border-radius: 5px;
+.category {
+  margin: 0;
+  margin-top: 12px;
+  margin-bottom: 22px;
+}
+.left {
+  flex: 1 auto;
+  flex-direction: column;
+}
+.tag {
+  font-weight: bold;
+  font-size: 24px;
+  margin-right: 10px;
+  color: #c5c5c5;
+}
+.tag.active {
+  color: $primary-color;
 }
 
-.thumbnail{
+.thumbnail {
   background-color: grey;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1 auto;
 }
