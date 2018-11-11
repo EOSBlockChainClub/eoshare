@@ -20,7 +20,10 @@ class Header extends Component {
           </div>
           <Link to="/upload">
             <Button ghost type="primary">
-              UPLOAD
+              <span>
+                <Icon type="upload" style={{ marginRight: 4 }} />
+                UPLOAD
+              </span>
             </Button>
           </Link>
           <Avatar

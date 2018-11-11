@@ -32,6 +32,7 @@
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "flexboxgrid-sass": "^8.0.5",
+    "rc-dialog": "^7.2.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-helmet": "^5.2.0",
