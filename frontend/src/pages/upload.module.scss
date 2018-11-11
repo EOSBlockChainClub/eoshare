@@ -1,0 +1,37 @@
+@import "~scss/theme/default";
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+}
+@include respond(hidpi-laptop) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.title {
+  font-weight: bold;
+  font-weight: 28px;
+  padding-top: 30px;
+}
+
+.innerContainer{
+  padding:20px;
+}
+
+.horizontal{
+  display:inline-flex;
+  flex-direction: row;
+}
+
+.tag{
+  margin-right: 5px;
+  padding:10px;
+  background-color: #208ef3;
+  border-radius: 5px;
+}
+
+.thumbnail{
+  background-color: grey;
+}
