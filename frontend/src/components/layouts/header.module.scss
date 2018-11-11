@@ -13,4 +13,25 @@ $header-height: 64px;
   max-width: 1440px;
   width: 100%;
   height: inherit;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.left {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1 auto;
+  .logo {
+    margin-right: 10px;
+    color: $primary-color;
+    font-weight: 600;
+  }
+}
+
+.search {
+  font-size: 14px;
+  display: block;
+  max-width: 270px;
+  width: 100%;
 }
