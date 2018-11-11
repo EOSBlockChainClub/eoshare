@@ -20,10 +20,6 @@ const eos =  EOSJS({httpEndpoint: point, chainId, keyProvider, binaryen})
 
 app.use(cors())
 
-app.post("/create", (req,res)=>{
-    //TODO create 
-})
-
 app.get("/music", (req,res, next)=>{
     return res.json(music)
 })
@@ -39,6 +35,7 @@ app.get("/photo", (req,res, next)=>{
 //All of this should be at the front, hardcoding for demo
 //name owner, string artist_name, string content_title, uint8_t content_type, asset price, string storage_uri, bool status
 app.post("/create",(req,res,next)=>{
+    console.log("create called")
     eos.transaction({
         actions: [{
             account: 'eoshareagent',
