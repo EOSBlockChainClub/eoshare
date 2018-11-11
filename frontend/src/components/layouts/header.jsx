@@ -9,7 +9,9 @@ class Header extends Component {
       <div className={styles.headerContainer}>
         <div className={styles.header}>
           <div className={styles.left}>
-            <span className={styles.logo}>EOShare</span>
+            <Link to="/">
+              <span className={styles.logo}>EOShare</span>
+            </Link>
             <Input
               prefix={<Icon type="search" />}
               className={styles.search}
