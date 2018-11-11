@@ -17,7 +17,12 @@ class Header extends Component {
           <Button ghost type="primary">
             UPLOAD
           </Button>
-          <Avatar className={styles.avatar} size="default" icon="user" />
+          <Avatar
+            src="/image/avatar.png"
+            className={styles.avatar}
+            size="default"
+            icon="user"
+          />
         </div>
       </div>
     );
